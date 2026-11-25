@@ -17,11 +17,14 @@ const PLUGIN_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = dirname(PLUGIN_DIR);
 const SKILL_DIR = join(REPO_ROOT, 'skills', 'manga-zh-localizer');
 const SKILL_MD_URL = new URL('../skills/manga-zh-localizer/SKILL.md', import.meta.url);
+const SKILL_MD_PATH = fileURLToPath(SKILL_MD_URL);
 const BATCH_SCRIPT = join(SKILL_DIR, 'scripts', 'batch_job.ps1');
 
 const PROVIDER_NAME = 'manga-zh-localizer';
 const SKILL_DESCRIPTION =
-  'Fast, lossless Chinese localization workflow for Japanese/Korean/color manga pages and text-bearing illustrations on Windows. Use whenever the user asks to translate, clean, typeset, or localize manga comics, doujinshi, or anime illustrations into Chinese, or refine dialogue/typography.';
+  'Fast, lossless Chinese localization workflow for Japanese/Korean/color manga pages and text-bearing illustrations on Windows.';
+const SKILL_WHEN_TO_USE =
+  'Use whenever the user asks to translate, clean, typeset, or localize manga comics, doujinshi, or text-bearing anime illustrations into Chinese, or refine dialogue and typography on a localized page.';
 
 export const name = 'manga-zh-localizer';
 
@@ -105,25 +108,34 @@ function registerSkill(ctx) {
   const resourceBase = { kind: 'directory', path: SKILL_DIR };
   const candidate = {
     name: 'manga-zh-localizer',
+    path: SKILL_MD_PATH,
     description: SKILL_DESCRIPTION,
+    whenToUse: SKILL_WHEN_TO_USE,
     provider: PROVIDER_NAME,
-    source: 'plugin',
+    source: 'bundled',
     resourceBase,
     locator: SKILL_MD_URL,
     rank: 450,
+    invocation: {
+      modelInvocable: true,
+      userInvocable: true,
+    },
   };
 
   const provider = {
     name: PROVIDER_NAME,
     list: () => Promise.resolve([candidate]),
-    async get() {
+    async get(_candidate, options = {}) {
+      const raw = await readFile(SKILL_MD_URL, {
+        encoding: 'utf8',
+        signal: options?.signal,
+      });
+      options?.signal?.throwIfAborted?.();
+      const content = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
+      const { rank: _rank, locator: _locator, ...summary } = candidate;
       return {
-        name: candidate.name,
-        description: candidate.description,
-        provider: candidate.provider,
-        source: candidate.source,
-        resourceBase,
-        content: await readFile(SKILL_MD_URL, 'utf8'),
+        ...summary,
+        content,
       };
     },
   };
