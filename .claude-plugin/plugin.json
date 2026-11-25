@@ -1,0 +1,29 @@
+{
+  "name": "manga-zh-localizer",
+  "version": "4.4.0",
+  "description": "Zero-dependency lossless Chinese manga & illustration localization plugin for Windows (PowerShell + C# LockBits + 2x headless Chromium typesetting).",
+  "author": {
+    "name": "tomotinlove",
+    "url": "https://github.com/tomotinlove"
+  },
+  "homepage": "https://github.com/tomotinlove/manga-zh-localizer",
+  "repository": "https://github.com/tomotinlove/manga-zh-localizer",
+  "license": "MIT",
+  "keywords": [
+    "manga",
+    "scanlation",
+    "localization",
+    "chinese",
+    "typesetting",
+    "windows",
+    "agent-skills"
+  ],
+  "skills": "./skills/",
+  "commands": [
+    "./commands/manga-localize.md",
+    "./commands/manga-scan.md",
+    "./commands/manga-build.md",
+    "./commands/manga-package.md",
+    "./commands/manga-doctor.md"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "series": "Series or Doujin Title",
+  "updated": "2026-01-01",
+  "naming_policy": "Keep recognized English/Latin proper nouns, stage names, or band names in original Latin script instead of long phonetic transliterations; vertical mode auto-rotates 2+ letter Latin runs via .latin.",
+  "characters": {
+    "原文名": {
+      "zh": "中文全名",
+      "short": "常用简称",
+      "stage_name": {
+        "ja": "カナ表記",
+        "en": "LatinName",
+        "zh": "LatinName"
+      },
+      "speech_style": "语气特点、敬语习惯、自称与口癖说明",
+      "hair_eyes": "外貌辨识特征（用于多角色画面确认说话人）"
+    }
+  },
+  "honorifics": {
+    "先輩": "前辈",
+    "さん": "小姐/先生（按语境省略或保留）"
+  },
+  "terms": {
+    "固有名詞": "统一中文译法"
+  }
+}

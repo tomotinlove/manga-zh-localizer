@@ -1,0 +1,25 @@
+# Local user overrides & credentials (never commit)
+config/*.local.json
+config/gallery-dl.json
+bin/
+
+# Working directories & sample outputs
+inbox/
+out/
+tmp/
+.tmp/
+_smoke_tmp/
+*.zh.png
+*_zh.png
+
+# Personal glossaries placed inside repo (only _template.json is tracked)
+skills/manga-zh-localizer/glossaries/*.json
+!skills/manga-zh-localizer/glossaries/_template.json
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/

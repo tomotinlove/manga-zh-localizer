@@ -1,0 +1,10 @@
+description = "Turn 2: Clean bubbles and render 2x supersampled Chinese typeset + QA contact sheets in parallel."
+prompt = """
+Run Turn 2 (`build`) of `manga-zh-localizer`.
+Arguments: `{{args}}`
+
+Execute:
+`powershell -NoProfile -ExecutionPolicy Bypass -File "${extensionPath}\skills\manga-zh-localizer\scripts\batch_job.ps1" -Mode build -Job <job> [optional flags from args]`
+
+Then inspect `qa_sheet.jpg`, `diff_sheet.jpg`, and any `[CleanAudit]` or `[Audit]` warnings before packaging.
+"""

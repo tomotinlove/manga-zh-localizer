@@ -1,0 +1,6 @@
+{
+  "name": "manga-zh-localizer",
+  "version": "4.4.0",
+  "description": "Zero-dependency lossless Chinese manga & illustration localization extension for Windows (PowerShell + C# LockBits + 2x headless Chromium typesetting).",
+  "contextFileName": "GEMINI.md"
+}

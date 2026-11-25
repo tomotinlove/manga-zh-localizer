@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "manga-zh-localizer",
+  "description": "Zero-dependency lossless Chinese manga & illustration localization plugin for Windows.",
+  "owner": {
+    "name": "tomotinlove"
+  },
+  "plugins": [
+    {
+      "name": "manga-zh-localizer",
+      "description": "Fast, lossless Chinese localization workflow for manga and illustrations on Windows (LockBits bubble cleaner + 2x supersampled vertical/horizontal Chinese typesetter).",
+      "source": "./"
+    }
+  ]
+}

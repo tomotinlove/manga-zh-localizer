@@ -1,0 +1,18 @@
+{
+  "name": "manga-zh-localizer",
+  "displayName": "Manga ZH Localizer",
+  "version": "4.4.0",
+  "description": "Fast, zero-dependency lossless Chinese localization workflow for Japanese/Korean/color manga and illustrations on Windows: multi-page parallel scan, LockBits bubble cleaning, optional AI ROI composite, and 2x supersampled vertical/horizontal Chinese typesetting.",
+  "author": {
+    "name": "tomotinlove",
+    "url": "https://github.com/tomotinlove"
+  },
+  "homepage": "https://github.com/tomotinlove/manga-zh-localizer",
+  "repository": "https://github.com/tomotinlove/manga-zh-localizer",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Localize the latest manga pages in my inbox into natural vertical Chinese and provide a translation table",
+    "Clean and typeset this color illustration into Chinese while keeping 100% original resolution",
+    "Run manga-zh-localizer doctor to verify my browser, fonts, and folder configuration"
+  ]
+}

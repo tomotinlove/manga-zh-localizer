@@ -1,0 +1,21 @@
+{
+  "extractor": {
+    "base-directory": "./inbox",
+    "pixiv": {
+      "refresh-token": "cache",
+      "directory": ["pixiv", "{id}"],
+      "filename": "{id}_p{num}.{extension}",
+      "ugoira": false,
+      "metadata": true,
+      "tags": "japanese",
+      "postprocessors": [
+        {
+          "name": "metadata",
+          "mode": "json",
+          "directory": ".",
+          "filename": "{id}_meta.json"
+        }
+      ]
+    }
+  }
+}

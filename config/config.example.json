@@ -1,0 +1,10 @@
+{
+  "inbox_dir": "./inbox",
+  "out_dir": "./out",
+  "tmp_dir": "",
+  "browser_bin": "",
+  "max_parallel": 4,
+  "super_sample": 2,
+  "col_width": 950,
+  "glossary_dirs": []
+}

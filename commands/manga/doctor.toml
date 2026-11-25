@@ -1,0 +1,7 @@
+description = "Check PowerShell, .NET GDI+, headless Edge/Chrome, CJK fonts, paths, and glossaries."
+prompt = """
+Run the `manga-zh-localizer` environment self-check:
+`powershell -NoProfile -ExecutionPolicy Bypass -File "${extensionPath}\skills\manga-zh-localizer\scripts\batch_job.ps1" -Mode doctor`
+
+Summarize readiness and recommend fixes for any reported warnings or failures.
+"""

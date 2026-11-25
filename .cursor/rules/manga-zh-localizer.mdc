@@ -1,0 +1,15 @@
+---
+description: Lossless Chinese manga & illustration localization rules (activate when translating, cleaning, typesetting, or refining manga/comics/illustrations into Chinese).
+alwaysApply: false
+---
+
+When localizing Japanese/Korean/color manga pages or text-bearing illustrations into Chinese:
+
+1. Read and follow `skills/manga-zh-localizer/SKILL.md` (and `rules/AGENTS.md` for concise always-on constraints).
+2. Always use `skills/manga-zh-localizer/scripts/batch_job.ps1` (`-Mode scan` -> `-Mode build` -> `-Mode package`, or `-Mode doctor`) via `powershell -NoProfile -ExecutionPolicy Bypass -File ...`. Never write throwaway helper scripts for routine runs, and always pass multiple image paths as a single pipe-delimited string `"<p0>|<p1>"`.
+3. Never hardcode personal drive letters or usernames — paths resolve via `_common.ps1` (`CLI flags` > `MANGA_*` env vars > `~/.manga-zh-localizer/config.json` > defaults).
+4. Enforce zero-defect scanlation rules:
+   - Concise natural oral Chinese (70%–85% of source char count); raw-free proofread before typesetting; omit internal `，` and terminal `。` in regular vertical bubbles; never place `的`/`了`/`呢`/`吗` at the top of a column.
+   - Uniform base font size (`2.35%–2.5%` of page width, `90%–115%` across regular bubbles); true font weights only (no faux-bold on `400`-only fonts); keep adjacent `layout.json` block `rect`s separated by `>= 12px`.
+   - Zero color blocks/smears: never stamp `solid_rect` over speedlines, screentones, gradients, off-white/tinted backgrounds, curved hair, or bubble rims; never use `translucent_*` across high-contrast lineart + black-bg boundaries; verify `0` `[CleanAudit]` and `0` `[Audit]` warnings and inspect full-res `_zh.png` for any non-bubble/textured clean before packaging.
+   - Re-run `batch_job.ps1 -Mode package` after ANY single-page post-QA edit in a multi-page job.
