@@ -1,5 +1,5 @@
 description = "Turn 3: Package localized PNGs into ordered folder + vertical long stitched strip."
-prompt = """
+prompt = '''
 Run Turn 3 (`package`) of `manga-zh-localizer`.
 Arguments: `{{args}}`
 
@@ -7,4 +7,4 @@ Execute:
 `powershell -NoProfile -ExecutionPolicy Bypass -File "${extensionPath}\skills\manga-zh-localizer\scripts\batch_job.ps1" -Mode package -Job <job> [optional -OutDir]`
 
 Report the final packaged file paths and folder listing.
-"""
+'''

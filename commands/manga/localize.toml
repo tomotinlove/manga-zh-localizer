@@ -1,5 +1,5 @@
 description = "Run the full 3-turn lossless Chinese manga localization workflow (scan -> clean & typeset -> QA & package)."
-prompt = """
+prompt = '''
 Run the end-to-end **manga-zh-localizer** workflow defined in `${extensionPath}/skills/manga-zh-localizer/SKILL.md`.
 
 Arguments provided by user: `{{args}}`
@@ -8,4 +8,4 @@ Arguments provided by user: `{{args}}`
 2. **Turn 1 (Scan)**: Run `powershell -NoProfile -ExecutionPolicy Bypass -File "${extensionPath}\skills\manga-zh-localizer\scripts\batch_job.ps1" -Mode scan ...` (use `-Images "<p0>|<p1>"` if explicit paths were given, `-Pattern "..."` for a glob, or `-Latest` if no args were given). Read `preview_sheet.jpg` and any relevant user glossary, draft concise natural Chinese (70%-85% of JP char count, omit internal commas and terminal periods in regular vertical bubbles, never start a column with 的), and perform a raw-free proofread.
 3. **Turn 2 (Build)**: Write `clean_plan.json` and `layout.json` for all pages under `<job_dir>\p0`, `p1`, ... and run `batch_job.ps1 -Mode build -Job <job>`.
 4. **Turn 3 (QA & Package)**: Inspect `qa_sheet.jpg`, `diff_sheet.jpg`, `audit_sheet.jpg`, and full-res `_zh.png` for any non-bubble/textured cleans. Fix any `[CleanAudit]` or `[Audit]` warnings, then run `batch_job.ps1 -Mode package -Job <job>` and deliver output paths + translation table.
-"""
+'''

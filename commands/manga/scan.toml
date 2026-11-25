@@ -1,5 +1,5 @@
 description = "Turn 1: Scan manga pages in parallel, detect bubble boxes/seeds, and stitch preview_sheet.jpg."
-prompt = """
+prompt = '''
 Run Turn 1 (`scan`) of `manga-zh-localizer`.
 Arguments: `{{args}}`
 
@@ -7,4 +7,4 @@ Execute:
 `powershell -NoProfile -ExecutionPolicy Bypass -File "${extensionPath}\skills\manga-zh-localizer\scripts\batch_job.ps1" -Mode scan <flags from args or -Latest>`
 
 Then inspect the generated `preview_sheet.jpg` and report detected bubbles plus concise draft Chinese translations.
-"""
+'''
