@@ -18,7 +18,7 @@ $cmdSrcDir = Join-Path $repoRoot "commands"
 $cursorRuleSrc = Join-Path $repoRoot ".cursor\rules\manga-zh-localizer.mdc"
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
-$validTargets = @("antigravity", "claude", "cursor", "codex", "gemini-cli", "opencode", "agents")
+$validTargets = @("antigravity", "claude", "cursor", "codex", "dsh", "gemini-cli", "opencode", "agents")
 
 function Resolve-TargetList([string]$spec) {
     $norm = $spec.Trim().ToLowerInvariant()
@@ -29,6 +29,7 @@ function Resolve-TargetList([string]$spec) {
         if (Test-Path (Join-Path $HOME ".claude"))                { $detected += "claude" }
         if (Test-Path (Join-Path $HOME ".cursor"))                { $detected += "cursor" }
         if (Test-Path (Join-Path $HOME ".codex"))                 { $detected += "codex" }
+        if (Test-Path (Join-Path $HOME ".dsh"))                   { $detected += "dsh" }
         if (Test-Path (Join-Path $HOME ".gemini\extensions"))     { $detected += "gemini-cli" }
         if (Test-Path (Join-Path $HOME ".config\opencode"))       { $detected += "opencode" }
         if (Test-Path (Join-Path $HOME ".agents"))                { $detected += "agents" }
@@ -212,7 +213,7 @@ foreach ($t in $selectedTargets) {
                 Remove-DirSafe -Path $dest
                 Write-Host ("[OK]   antigravity : removed {0}" -f $dest)
             } else {
-                Install-Directory -Source $repoRoot -Dest $dest -InstallMode $Mode -ExcludeNames ($repoExclude + @(".claude-plugin", ".cursor-plugin", ".cursor", "gemini-extension.json", "GEMINI.md", "CLAUDE.md"))
+                Install-Directory -Source $repoRoot -Dest $dest -InstallMode $Mode -ExcludeNames ($repoExclude + @(".claude-plugin", ".cursor-plugin", ".cursor", "dsh", "cordis.patch.yml", "package.json", "gemini-extension.json", "GEMINI.md", "CLAUDE.md"))
                 Write-Host ("[OK]   antigravity : installed full plugin -> {0}" -f $dest)
             }
         }
@@ -264,13 +265,23 @@ foreach ($t in $selectedTargets) {
                 Write-Host ("[OK]   codex       : installed skill -> {0}" -f $skillDest)
             }
         }
+        "dsh" {
+            $skillDest = Join-Path $HOME ".dsh\skills\manga-zh-localizer"
+            if ($Uninstall) {
+                Remove-DirSafe -Path $skillDest
+                Write-Host ("[OK]   dsh         : removed {0}" -f $skillDest)
+            } else {
+                Install-Directory -Source $skillSrc -Dest $skillDest -InstallMode $Mode
+                Write-Host ("[OK]   dsh         : installed skill -> {0} (or run: dsh plugin --profile desktop add github:tomotinlove/manga-zh-localizer)" -f $skillDest)
+            }
+        }
         "gemini-cli" {
             $extDest = Join-Path $HOME ".gemini\extensions\manga-zh-localizer"
             if ($Uninstall) {
                 Remove-DirSafe -Path $extDest
                 Write-Host ("[OK]   gemini-cli  : removed {0}" -f $extDest)
             } else {
-                Install-Directory -Source $repoRoot -Dest $extDest -InstallMode $Mode -ExcludeNames ($repoExclude + @(".claude-plugin", ".cursor-plugin", ".cursor", "CLAUDE.md"))
+                Install-Directory -Source $repoRoot -Dest $extDest -InstallMode $Mode -ExcludeNames ($repoExclude + @(".claude-plugin", ".cursor-plugin", ".cursor", "dsh", "cordis.patch.yml", "package.json", "CLAUDE.md"))
                 Write-Host ("[OK]   gemini-cli  : installed extension -> {0}" -f $extDest)
             }
         }

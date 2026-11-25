@@ -1,0 +1,15 @@
+# DeepSeek Harness (dsh) bundle patch for manga-zh-localizer
+# Registers the manga-zh-localizer skill provider and manga_* pipeline tools.
+#
+# Install:
+#   dsh plugin --profile desktop add github:tomotinlove/manga-zh-localizer
+- insert:
+    - id: manga-zh-localizer
+      name: manga-zh-localizer
+      config:
+        inboxDir: ""
+        outDir: ""
+        tmpDir: ""
+        browserBin: ""
+        maxParallel: 0
+        superSample: 0

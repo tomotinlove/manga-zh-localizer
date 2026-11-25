@@ -2,7 +2,7 @@
 
 > **面向日漫、韩漫、彩漫与带字插画的跨 Agent 零依赖无损中文汉化插件（Windows）**
 >
-> Zero-dependency, pixel-lossless Chinese manga & illustration localization plugin for **Antigravity, Claude Code, Cursor, Codex, Gemini CLI, and OpenCode** on Windows.
+> Zero-dependency, pixel-lossless Chinese manga & illustration localization plugin for **DeepSeek Harness (DSH), Antigravity, Claude Code, Cursor, Codex, Gemini CLI, and OpenCode** on Windows.
 
 ---
 
@@ -26,6 +26,7 @@
 
 | Agent / CLI | 原生支持文件 | 安装方式 | 斜杠命令 / 触发 |
 | :--- | :--- | :--- | :--- |
+| **DeepSeek Harness (DSH)** | `package.json` + `cordis.patch.yml` + `dsh/index.js` + `skills/` | **原生插件**：`dsh plugin --profile desktop add github:tomotinlove/manga-zh-localizer`（自动注册技能 + `manga_*` 工具）<br>**纯 Skill**：`.\scripts\install.ps1 -Targets dsh` | 原生工具 `manga_doctor` / `manga_scan` / `manga_build` / `manga_package` + 自动激活 `SKILL.md` |
 | **Antigravity** | `plugin.json` + `rules/AGENTS.md` + `skills/` | `.\scripts\install.ps1 -Targets antigravity` | 自然语言 / 快捷提示词 |
 | **Claude Code** | `.claude-plugin/plugin.json` + `marketplace.json` + `commands/` + `skills/` | `/plugin marketplace add tomotinlove/manga-zh-localizer` 后 `/plugin install manga-zh-localizer` 或 `.\scripts\install.ps1 -Targets claude` | `/manga-localize` `/manga-scan` `/manga-build` `/manga-package` `/manga-doctor` |
 | **Cursor** | `.cursor-plugin/plugin.json` + `.cursor/rules/*.mdc` + `commands/` + `skills/` | Cursor 插件安装或 `.\scripts\install.ps1 -Targets cursor` | `/manga-localize` 等 + 自动规则 |
@@ -114,6 +115,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\doctor.ps1"
 
 ```text
 manga-zh-localizer/
+├── package.json / cordis.patch.yml    # DeepSeek Harness (DSH) 原生 Cordis 插件清单
+├── dsh/index.js                       # DSH 零依赖入口（注册 Skill Provider + manga_* 工具）
 ├── plugin.json                        # Antigravity & Agent Plugins 1.0 根清单
 ├── gemini-extension.json              # Gemini CLI 原生扩展清单
 ├── GEMINI.md / AGENTS.md / CLAUDE.md  # 各平台上下文入口

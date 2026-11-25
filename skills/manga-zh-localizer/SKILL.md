@@ -8,7 +8,7 @@ description: >-
 
 # Manga & Illustration Fast Lossless Chinese Localizer (v4.4)
 
-Fast, zero-dependency (Windows PowerShell 5.1 + inline C# `LockBits` + 2× HiDPI headless Edge/Chrome) workflow that preserves **100% original resolution and pixel fidelity** on all artwork outside text strokes, renders **print-sharp supersampled vector Chinese typography with pixel-level optical centering & border-collision audit**, and runs cleanly across **Antigravity, Claude Code, Cursor, Codex, Gemini CLI, and OpenCode**.
+Fast, zero-dependency (Windows PowerShell 5.1 + inline C# `LockBits` + 2× HiDPI headless Edge/Chrome) workflow that preserves **100% original resolution and pixel fidelity** on all artwork outside text strokes, renders **print-sharp supersampled vector Chinese typography with pixel-level optical centering & border-collision audit**, and runs cleanly across **DeepSeek Harness (DSH), Antigravity, Claude Code, Cursor, Codex, Gemini CLI, and OpenCode**.
 
 ## Path & Runtime Configuration
 

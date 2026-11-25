@@ -1,0 +1,62 @@
+{
+  "name": "manga-zh-localizer",
+  "version": "4.4.0",
+  "description": "Zero-dependency lossless Chinese manga & illustration localization plugin for Windows (DeepSeek Harness, Antigravity, Claude Code, Cursor, Codex, Gemini CLI, OpenCode).",
+  "type": "module",
+  "author": "tomotinlove",
+  "license": "MIT",
+  "homepage": "https://github.com/tomotinlove/manga-zh-localizer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomotinlove/manga-zh-localizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tomotinlove/manga-zh-localizer/issues"
+  },
+  "main": "./dsh/index.js",
+  "exports": {
+    ".": "./dsh/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dsh/",
+    "cordis.patch.yml",
+    "skills/",
+    "rules/",
+    "commands/",
+    "config/",
+    "scripts/",
+    "assets/",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "manga",
+    "scanlation",
+    "localization",
+    "chinese",
+    "typesetting",
+    "agent-skills"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0 <5"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  }
+}

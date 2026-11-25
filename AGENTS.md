@@ -1,6 +1,6 @@
 # manga-zh-localizer — Agent Instructions
 
-This repository packages **manga-zh-localizer (v4.4)**, a zero-dependency lossless Chinese manga & illustration localization plugin for Windows (PowerShell 5.1 + C# `LockBits` + 2× HiDPI headless Edge/Chrome) compatible with Antigravity, Claude Code, Cursor, Codex, Gemini CLI, and OpenCode.
+This repository packages **manga-zh-localizer (v4.4)**, a zero-dependency lossless Chinese manga & illustration localization plugin for Windows (PowerShell 5.1 + C# `LockBits` + 2× HiDPI headless Edge/Chrome) compatible with DeepSeek Harness (DSH), Antigravity, Claude Code, Cursor, Codex, Gemini CLI, and OpenCode.
 
 ## Using This Plugin
 
